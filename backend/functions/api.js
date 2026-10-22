@@ -3,7 +3,7 @@ import serverless from 'serverless-http'
 import { connectToDatabase } from '../database/connect.js'
 
 // Choose an existing collection and a string field to use for searching.
-const collectionName = 'restaurants'
+const collectionName = 'movies'
 
 export const app = express()
 const router = express.Router()
