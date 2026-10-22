@@ -1,0 +1,16 @@
+# Netlify serves the frontend folder as static assets
+[build]
+  publish = "frontend" 
+
+# Netlify will run Express as a serverless function.
+[functions]
+  directory = "backend/functions"
+  external_node_modules = ["express"]
+  node_bundler = "esbuild" 
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
