@@ -13,7 +13,7 @@ router.get('/items', async (req, res) => {
     const db = await connectToDatabase()
     const items = await db.collection(collectionName)
         .find({})
-        .limit(5)
+        .limit(10)
         .toArray()
     res.json(items)
 })
@@ -34,7 +34,7 @@ router.get('/search', async (req, res) => {
             // title: terms
             title: RegExp(terms , 'i')   // JavaScript RegExp syntax is supported by MongoDB
         }) 
-        .limit(5)
+        .limit(10)
         .toArray()
     res.json(items)
 })
