@@ -34,7 +34,7 @@ router.get('/search', async (req, res) => {
             // title: terms
             title: RegExp(terms , 'i')   // JavaScript RegExp syntax is supported by MongoDB
         }) 
-        .limit(10)
+        .limit(5)
         .toArray()
     res.json(items)
 })
