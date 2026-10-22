@@ -3,7 +3,7 @@ import serverless from 'serverless-http'
 import { connectToDatabase } from '../database/connect.js'
 
 // Choose an existing collection and a string field to use for searching.
-const collectionName = 'movies'
+const collectionName = 'restaurants'
 
 export const app = express()
 const router = express.Router()
@@ -13,7 +13,7 @@ router.get('/items', async (req, res) => {
     const db = await connectToDatabase()
     const items = await db.collection(collectionName)
         .find({})
-        .limit(10)
+        .limit(5)
         .toArray()
     res.json(items)
 })
